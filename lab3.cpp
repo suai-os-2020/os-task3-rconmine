@@ -10,7 +10,7 @@ using namespace std;
 HANDLE ghSemaphore;
 HANDLE SemF, SemH, SemG;
 
-DWORD WINAPI ThreadProc(LPVOID);
+//DWORD WINAPI ThreadProc(LPVOID);
 //
 // lab3 code should be located here!
 //
@@ -116,7 +116,7 @@ DWORD WINAPI ThreadProcH(LPVOID lpParam)
 	return 0;
 }
 
-DWORD WINAPI ThreadProc(LPVOID lpParam)
+DWORD WINAPI ThreadProc(LPVOID * lpParam)
 {
 
 	// lpParam not used in this example
@@ -132,7 +132,7 @@ DWORD WINAPI ThreadProc(LPVOID lpParam)
 		switch (dwWaitResult)
 		{
 		case WAIT_OBJECT_0:
-			cout << (char)lpParam;
+			cout << (char)*lpParam;
 			if (!ReleaseSemaphore(ghSemaphore, 1, NULL))
 			{
 				cout << "ReleaseSemaphore error: \n" << GetLastError();
@@ -166,12 +166,13 @@ int lab3_init()
 
 	// Create worker threads
 	// Создаем потоки
-
+	char* a = new char(1);
+	*a = 'a';
 	aThread[0] = CreateThread(
 		NULL,       // default security attributes   // аттрибуты безопасности по умолчанию
 		0,          // default stack size            // размер стека по умолчанию
 		(LPTHREAD_START_ROUTINE)ThreadProc,
-		(LPVOID) 'a',       // no thread function arguments  // отсутствуют аргументы для функции-тела потока
+		a,       // no thread function arguments  // отсутствуют аргументы для функции-тела потока
 		0,          // default creation flags        // флаги создания потока по умолчанию
 		&ThreadID); // receive thread identifier     // идентификатор потока
 
@@ -180,12 +181,13 @@ int lab3_init()
 		cout << "CreateThread error: \n" << GetLastError();
 		return 1;
 	}
-
+	char* b = new char(1);
+	*b = 'b';
 	aThread[1] = CreateThread(
 		NULL,       // default security attributes   // аттрибуты безопасности по умолчанию
 		0,          // default stack size            // размер стека по умолчанию
 		(LPTHREAD_START_ROUTINE)ThreadProc,
-		(LPVOID) 'b',       // no thread function arguments  // отсутствуют аргументы для функции-тела потока
+		b,       // no thread function arguments  // отсутствуют аргументы для функции-тела потока
 		0,          // default creation flags        // флаги создания потока по умолчанию
 		&ThreadID); // receive thread identifier     // идентификатор потока
 
@@ -194,12 +196,13 @@ int lab3_init()
 		cout << "CreateThread error: \n" << GetLastError();
 		return 1;
 	}
-
+	char* d = new char(1);
+	*d = 'd';
 	aThread[2] = CreateThread(
 		NULL,       // default security attributes   // аттрибуты безопасности по умолчанию
 		0,          // default stack size            // размер стека по умолчанию
 		(LPTHREAD_START_ROUTINE)ThreadProc,
-		(LPVOID) 'd',       // no thread function arguments  // отсутствуют аргументы для функции-тела потока
+		d,       // no thread function arguments  // отсутствуют аргументы для функции-тела потока
 		0,          // default creation flags        // флаги создания потока по умолчанию
 		&ThreadID); // receive thread identifier     // идентификатор потока
 
@@ -226,7 +229,7 @@ int lab3_init()
 		NULL,       // default security attributes   // аттрибуты безопасности по умолчанию
 		0,          // default stack size            // размер стека по умолчанию
 		(LPTHREAD_START_ROUTINE)ThreadProc,
-		(LPVOID) 'b',       // no thread function arguments  // отсутствуют аргументы для функции-тела потока
+		b,       // no thread function arguments  // отсутствуют аргументы для функции-тела потока
 		0,          // default creation flags        // флаги создания потока по умолчанию
 		&ThreadID); // receive thread identifier     // идентификатор потока
 
@@ -240,7 +243,7 @@ int lab3_init()
 		NULL,       // default security attributes   // аттрибуты безопасности по умолчанию
 		0,          // default stack size            // размер стека по умолчанию
 		(LPTHREAD_START_ROUTINE)ThreadProc,
-		(LPVOID) 'd',       // no thread function arguments  // отсутствуют аргументы для функции-тела потока
+		d,       // no thread function arguments  // отсутствуют аргументы для функции-тела потока
 		0,          // default creation flags        // флаги создания потока по умолчанию
 		&ThreadID); // receive thread identifier     // идентификатор потока
 
@@ -249,12 +252,13 @@ int lab3_init()
 		cout << "CreateThread error: \n" << GetLastError();
 		return 1;
 	}
-
+	char* c = new char(1);
+	*c = 'c';
 	aThread[5] = CreateThread(
 		NULL,       // default security attributes   // аттрибуты безопасности по умолчанию
 		0,          // default stack size            // размер стека по умолчанию
 		(LPTHREAD_START_ROUTINE)ThreadProc,
-		(LPVOID) 'c',       // no thread function arguments  // отсутствуют аргументы для функции-тела потока
+		c,       // no thread function arguments  // отсутствуют аргументы для функции-тела потока
 		0,          // default creation flags        // флаги создания потока по умолчанию
 		&ThreadID); // receive thread identifier     // идентификатор потока
 
@@ -272,12 +276,13 @@ int lab3_init()
 	CloseHandle(aThread[4]);
 	CloseHandle(aThread[5]);
 
-
+	char* h = new char(1);
+	*h = 'h';
 	aThread[6] = CreateThread(
 		NULL,       // default security attributes   // аттрибуты безопасности по умолчанию
 		0,          // default stack size            // размер стека по умолчанию
 		(LPTHREAD_START_ROUTINE)ThreadProc,
-		(LPVOID) 'h',       // no thread function arguments  // отсутствуют аргументы для функции-тела потока
+		h,       // no thread function arguments  // отсутствуют аргументы для функции-тела потока
 		0,          // default creation flags        // флаги создания потока по умолчанию
 		&ThreadID); // receive thread identifier     // идентификатор потока
 
@@ -286,12 +291,13 @@ int lab3_init()
 		cout << "CreateThread error: \n" << GetLastError();
 		return 1;
 	}
-
+	char* f = new char(1);
+	*f = 'f';
 	aThread[7] = CreateThread(
 		NULL,       // default security attributes   // аттрибуты безопасности по умолчанию
 		0,          // default stack size            // размер стека по умолчанию
 		(LPTHREAD_START_ROUTINE)ThreadProc,
-		(LPVOID) 'f',       // no thread function arguments  // отсутствуют аргументы для функции-тела потока
+		f,       // no thread function arguments  // отсутствуют аргументы для функции-тела потока
 		0,          // default creation flags        // флаги создания потока по умолчанию
 		&ThreadID); // receive thread identifier     // идентификатор потока
 
@@ -300,12 +306,13 @@ int lab3_init()
 		cout << "CreateThread error: \n" << GetLastError();
 		return 1;
 	}
-
+	char* e = new char(1);
+	*e = 'e';
 	aThread[8] = CreateThread(
 		NULL,       // default security attributes   // аттрибуты безопасности по умолчанию
 		0,          // default stack size            // размер стека по умолчанию
 		(LPTHREAD_START_ROUTINE)ThreadProc,
-		(LPVOID) 'e',       // no thread function arguments  // отсутствуют аргументы для функции-тела потока
+		e,       // no thread function arguments  // отсутствуют аргументы для функции-тела потока
 		0,          // default creation flags        // флаги создания потока по умолчанию
 		&ThreadID); // receive thread identifier     // идентификатор потока
 
@@ -319,7 +326,7 @@ int lab3_init()
 		NULL,       // default security attributes   // аттрибуты безопасности по умолчанию
 		0,          // default stack size            // размер стека по умолчанию
 		(LPTHREAD_START_ROUTINE)ThreadProc,
-		(LPVOID) 'd',       // no thread function arguments  // отсутствуют аргументы для функции-тела потока
+		d,       // no thread function arguments  // отсутствуют аргументы для функции-тела потока
 		0,          // default creation flags        // флаги создания потока по умолчанию
 		&ThreadID); // receive thread identifier     // идентификатор потока
 
@@ -420,7 +427,7 @@ int lab3_init()
 		NULL,       // default security attributes   // аттрибуты безопасности по умолчанию
 		0,          // default stack size            // размер стека по умолчанию
 		(LPTHREAD_START_ROUTINE)ThreadProc,
-		(LPVOID) 'h',       // no thread function arguments  // отсутствуют аргументы для функции-тела потока
+		h,       // no thread function arguments  // отсутствуют аргументы для функции-тела потока
 		0,          // default creation flags        // флаги создания потока по умолчанию
 		&ThreadID); // receive thread identifier     // идентификатор потока
 
@@ -430,11 +437,13 @@ int lab3_init()
 		return 1;
 	}
 
+	char* ii = new char(1);
+	*ii = 'i';
 	aThread[14] = CreateThread(
 		NULL,       // default security attributes   // аттрибуты безопасности по умолчанию
 		0,          // default stack size            // размер стека по умолчанию
 		(LPTHREAD_START_ROUTINE)ThreadProc,
-		(LPVOID) 'i',       // no thread function arguments  // отсутствуют аргументы для функции-тела потока
+		ii,       // no thread function arguments  // отсутствуют аргументы для функции-тела потока
 		0,          // default creation flags        // флаги создания потока по умолчанию
 		&ThreadID); // receive thread identifier     // идентификатор потока
 
@@ -443,12 +452,13 @@ int lab3_init()
 		cout << "CreateThread error: \n" << GetLastError();
 		return 1;
 	}
-
+	char* k = new char(1);
+	*k = 'k';
 	aThread[15] = CreateThread(
 		NULL,       // default security attributes   // аттрибуты безопасности по умолчанию
 		0,          // default stack size            // размер стека по умолчанию
 		(LPTHREAD_START_ROUTINE)ThreadProc,
-		(LPVOID) 'k',       // no thread function arguments  // отсутствуют аргументы для функции-тела потока
+		k,       // no thread function arguments  // отсутствуют аргументы для функции-тела потока
 		0,          // default creation flags        // флаги создания потока по умолчанию
 		&ThreadID); // receive thread identifier     // идентификатор потока
 
@@ -470,7 +480,7 @@ int lab3_init()
 		NULL,       // default security attributes   // аттрибуты безопасности по умолчанию
 		0,          // default stack size            // размер стека по умолчанию
 		(LPTHREAD_START_ROUTINE)ThreadProc,
-		(LPVOID) 'k',       // no thread function arguments  // отсутствуют аргументы для функции-тела потока
+		k,       // no thread function arguments  // отсутствуют аргументы для функции-тела потока
 		0,          // default creation flags        // флаги создания потока по умолчанию
 		&ThreadID); // receive thread identifier     // идентификатор потока
 
@@ -480,11 +490,13 @@ int lab3_init()
 		return 1;
 	}
 
+	char* m = new char(1);
+	*m = 'm';
 	aThread[17] = CreateThread(
 		NULL,       // default security attributes   // аттрибуты безопасности по умолчанию
 		0,          // default stack size            // размер стека по умолчанию
 		(LPTHREAD_START_ROUTINE)ThreadProc,
-		(LPVOID) 'm',       // no thread function arguments  // отсутствуют аргументы для функции-тела потока
+		m,       // no thread function arguments  // отсутствуют аргументы для функции-тела потока
 		0,          // default creation flags        // флаги создания потока по умолчанию
 		&ThreadID); // receive thread identifier     // идентификатор потока
 
@@ -503,7 +515,7 @@ int lab3_init()
 	for (i = 0; i < THREADCOUNT; i++)
 		;
 
-
+		
 	CloseHandle(ghSemaphore);
 
 	return 0;
