@@ -37,7 +37,7 @@ DWORD WINAPI ThreadProcF(LPVOID lpParam)
 {
 
 	// lpParam not used in this example
-	// аргумент (параметр) lpParam в этом примере не используется
+	// Р°СЂРіСѓРјРµРЅС‚ (РїР°СЂР°РјРµС‚СЂ) lpParam РІ СЌС‚РѕРј РїСЂРёРјРµСЂРµ РЅРµ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ
 	UNREFERENCED_PARAMETER(lpParam);
 
 	DWORD dwWaitResult;
@@ -65,7 +65,7 @@ DWORD WINAPI ThreadProcG(LPVOID lpParam)
 {
 
 	// lpParam not used in this example
-	// аргумент (параметр) lpParam в этом примере не используется
+	// Р°СЂРіСѓРјРµРЅС‚ (РїР°СЂР°РјРµС‚СЂ) lpParam РІ СЌС‚РѕРј РїСЂРёРјРµСЂРµ РЅРµ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ
 	UNREFERENCED_PARAMETER(lpParam);
 
 	DWORD dwWaitResult;
@@ -93,7 +93,7 @@ DWORD WINAPI ThreadProcH(LPVOID lpParam)
 {
 
 	// lpParam not used in this example
-	// аргумент (параметр) lpParam в этом примере не используется
+	// Р°СЂРіСѓРјРµРЅС‚ (РїР°СЂР°РјРµС‚СЂ) lpParam РІ СЌС‚РѕРј РїСЂРёРјРµСЂРµ РЅРµ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ
 	UNREFERENCED_PARAMETER(lpParam);
 
 	DWORD dwWaitResult;
@@ -121,7 +121,7 @@ DWORD WINAPI ThreadProc(LPVOID* lpParam)
 {
 
 	// lpParam not used in this example
-	// аргумент (параметр) lpParam в этом примере не используется
+	// Р°СЂРіСѓРјРµРЅС‚ (РїР°СЂР°РјРµС‚СЂ) lpParam РІ СЌС‚РѕРј РїСЂРёРјРµСЂРµ РЅРµ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ
 	UNREFERENCED_PARAMETER(lpParam);
 	//char lt = (char)lpParam;
 
@@ -153,12 +153,12 @@ int lab3_init()
 	int i;
 
 	// Create a semaphore with initial and max counts of MAX_SEM_COUNT
-	// Создание семафора с начальным и максимальным значениями счетчика равными MAX_SEM_COUNT
+	// РЎРѕР·РґР°РЅРёРµ СЃРµРјР°С„РѕСЂР° СЃ РЅР°С‡Р°Р»СЊРЅС‹Рј Рё РјР°РєСЃРёРјР°Р»СЊРЅС‹Рј Р·РЅР°С‡РµРЅРёСЏРјРё СЃС‡РµС‚С‡РёРєР° СЂР°РІРЅС‹РјРё MAX_SEM_COUNT
 	ghSemaphore = CreateSemaphore(
-		NULL,           // default security attributes // аттрибуты безопасности по умолчанию
-		MAX_SEM_COUNT,  // initial count               // начальное значение счетчика
-		MAX_SEM_COUNT,  // maximum count               // максимаьлное значение счетчика
-		NULL);          // unnamed semaphore           // безымянный семафор
+		NULL,           // default security attributes // Р°С‚С‚СЂРёР±СѓС‚С‹ Р±РµР·РѕРїР°СЃРЅРѕСЃС‚Рё РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+		MAX_SEM_COUNT,  // initial count               // РЅР°С‡Р°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ СЃС‡РµС‚С‡РёРєР°
+		MAX_SEM_COUNT,  // maximum count               // РјР°РєСЃРёРјР°СЊР»РЅРѕРµ Р·РЅР°С‡РµРЅРёРµ СЃС‡РµС‚С‡РёРєР°
+		NULL);          // unnamed semaphore           // Р±РµР·С‹РјСЏРЅРЅС‹Р№ СЃРµРјР°С„РѕСЂ
 
 	if (ghSemaphore == NULL)
 	{
@@ -167,16 +167,16 @@ int lab3_init()
 	}
 
 	// Create worker threads
-	// Создаем потоки
+	// РЎРѕР·РґР°РµРј РїРѕС‚РѕРєРё
 	char* a = new char(1);
 	*a = 'a';
 	aThread[0] = CreateThread(
-		NULL,       // default security attributes   // аттрибуты безопасности по умолчанию
-		0,          // default stack size            // размер стека по умолчанию
+		NULL,       // default security attributes   // Р°С‚С‚СЂРёР±СѓС‚С‹ Р±РµР·РѕРїР°СЃРЅРѕСЃС‚Рё РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+		0,          // default stack size            // СЂР°Р·РјРµСЂ СЃС‚РµРєР° РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
 		(LPTHREAD_START_ROUTINE)ThreadProc,
-		a,       // no thread function arguments  // отсутствуют аргументы для функции-тела потока
-		0,          // default creation flags        // флаги создания потока по умолчанию
-		&ThreadID); // receive thread identifier     // идентификатор потока
+		a,       // no thread function arguments  // РѕС‚СЃСѓС‚СЃС‚РІСѓСЋС‚ Р°СЂРіСѓРјРµРЅС‚С‹ РґР»СЏ С„СѓРЅРєС†РёРё-С‚РµР»Р° РїРѕС‚РѕРєР°
+		0,          // default creation flags        // С„Р»Р°РіРё СЃРѕР·РґР°РЅРёСЏ РїРѕС‚РѕРєР° РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+		&ThreadID); // receive thread identifier     // РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РїРѕС‚РѕРєР°
 
 	if (aThread[0] == NULL)
 	{
@@ -186,12 +186,12 @@ int lab3_init()
 	char* b = new char(1);
 	*b = 'b';
 	aThread[1] = CreateThread(
-		NULL,       // default security attributes   // аттрибуты безопасности по умолчанию
-		0,          // default stack size            // размер стека по умолчанию
+		NULL,       // default security attributes   // Р°С‚С‚СЂРёР±СѓС‚С‹ Р±РµР·РѕРїР°СЃРЅРѕСЃС‚Рё РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+		0,          // default stack size            // СЂР°Р·РјРµСЂ СЃС‚РµРєР° РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
 		(LPTHREAD_START_ROUTINE)ThreadProc,
-		b,       // no thread function arguments  // отсутствуют аргументы для функции-тела потока
-		0,          // default creation flags        // флаги создания потока по умолчанию
-		&ThreadID); // receive thread identifier     // идентификатор потока
+		b,       // no thread function arguments  // РѕС‚СЃСѓС‚СЃС‚РІСѓСЋС‚ Р°СЂРіСѓРјРµРЅС‚С‹ РґР»СЏ С„СѓРЅРєС†РёРё-С‚РµР»Р° РїРѕС‚РѕРєР°
+		0,          // default creation flags        // С„Р»Р°РіРё СЃРѕР·РґР°РЅРёСЏ РїРѕС‚РѕРєР° РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+		&ThreadID); // receive thread identifier     // РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РїРѕС‚РѕРєР°
 
 	if (aThread[1] == NULL)
 	{
@@ -201,12 +201,12 @@ int lab3_init()
 	char* d = new char(1);
 	*d = 'd';
 	aThread[2] = CreateThread(
-		NULL,       // default security attributes   // аттрибуты безопасности по умолчанию
-		0,          // default stack size            // размер стека по умолчанию
+		NULL,       // default security attributes   // Р°С‚С‚СЂРёР±СѓС‚С‹ Р±РµР·РѕРїР°СЃРЅРѕСЃС‚Рё РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+		0,          // default stack size            // СЂР°Р·РјРµСЂ СЃС‚РµРєР° РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
 		(LPTHREAD_START_ROUTINE)ThreadProc,
-		d,       // no thread function arguments  // отсутствуют аргументы для функции-тела потока
-		0,          // default creation flags        // флаги создания потока по умолчанию
-		&ThreadID); // receive thread identifier     // идентификатор потока
+		d,       // no thread function arguments  // РѕС‚СЃСѓС‚СЃС‚РІСѓСЋС‚ Р°СЂРіСѓРјРµРЅС‚С‹ РґР»СЏ С„СѓРЅРєС†РёРё-С‚РµР»Р° РїРѕС‚РѕРєР°
+		0,          // default creation flags        // С„Р»Р°РіРё СЃРѕР·РґР°РЅРёСЏ РїРѕС‚РѕРєР° РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+		&ThreadID); // receive thread identifier     // РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РїРѕС‚РѕРєР°
 
 	if (aThread[2] == NULL)
 	{
@@ -215,25 +215,25 @@ int lab3_init()
 	}
 
 	// Wait for all threads to terminate
-	// Ждем завершения всех потоков
+	// Р–РґРµРј Р·Р°РІРµСЂС€РµРЅРёСЏ РІСЃРµС… РїРѕС‚РѕРєРѕРІ
 
 	WaitForSingleObject(aThread[0], INFINITE);
 	WaitForSingleObject(aThread[1], INFINITE);
 	WaitForSingleObject(aThread[2], INFINITE);
 	// Close thread and semaphore handles
-	// Закрываем потоки и дескриптор семафора
+	// Р—Р°РєСЂС‹РІР°РµРј РїРѕС‚РѕРєРё Рё РґРµСЃРєСЂРёРїС‚РѕСЂ СЃРµРјР°С„РѕСЂР°
 	//CloseHandle(aThread[0]);
 	CloseHandle(aThread[0]);
 	CloseHandle(aThread[1]);
 	CloseHandle(aThread[2]);
 
 	aThread[3] = CreateThread(
-		NULL,       // default security attributes   // аттрибуты безопасности по умолчанию
-		0,          // default stack size            // размер стека по умолчанию
+		NULL,       // default security attributes   // Р°С‚С‚СЂРёР±СѓС‚С‹ Р±РµР·РѕРїР°СЃРЅРѕСЃС‚Рё РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+		0,          // default stack size            // СЂР°Р·РјРµСЂ СЃС‚РµРєР° РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
 		(LPTHREAD_START_ROUTINE)ThreadProc,
-		b,       // no thread function arguments  // отсутствуют аргументы для функции-тела потока
-		0,          // default creation flags        // флаги создания потока по умолчанию
-		&ThreadID); // receive thread identifier     // идентификатор потока
+		b,       // no thread function arguments  // РѕС‚СЃСѓС‚СЃС‚РІСѓСЋС‚ Р°СЂРіСѓРјРµРЅС‚С‹ РґР»СЏ С„СѓРЅРєС†РёРё-С‚РµР»Р° РїРѕС‚РѕРєР°
+		0,          // default creation flags        // С„Р»Р°РіРё СЃРѕР·РґР°РЅРёСЏ РїРѕС‚РѕРєР° РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+		&ThreadID); // receive thread identifier     // РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РїРѕС‚РѕРєР°
 
 	if (aThread[3] == NULL)
 	{
@@ -242,12 +242,12 @@ int lab3_init()
 	}
 
 	aThread[4] = CreateThread(
-		NULL,       // default security attributes   // аттрибуты безопасности по умолчанию
-		0,          // default stack size            // размер стека по умолчанию
+		NULL,       // default security attributes   // Р°С‚С‚СЂРёР±СѓС‚С‹ Р±РµР·РѕРїР°СЃРЅРѕСЃС‚Рё РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+		0,          // default stack size            // СЂР°Р·РјРµСЂ СЃС‚РµРєР° РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
 		(LPTHREAD_START_ROUTINE)ThreadProc,
-		d,       // no thread function arguments  // отсутствуют аргументы для функции-тела потока
-		0,          // default creation flags        // флаги создания потока по умолчанию
-		&ThreadID); // receive thread identifier     // идентификатор потока
+		d,       // no thread function arguments  // РѕС‚СЃСѓС‚СЃС‚РІСѓСЋС‚ Р°СЂРіСѓРјРµРЅС‚С‹ РґР»СЏ С„СѓРЅРєС†РёРё-С‚РµР»Р° РїРѕС‚РѕРєР°
+		0,          // default creation flags        // С„Р»Р°РіРё СЃРѕР·РґР°РЅРёСЏ РїРѕС‚РѕРєР° РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+		&ThreadID); // receive thread identifier     // РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РїРѕС‚РѕРєР°
 
 	if (aThread[4] == NULL)
 	{
@@ -257,12 +257,12 @@ int lab3_init()
 	char* c = new char(1);
 	*c = 'c';
 	aThread[5] = CreateThread(
-		NULL,       // default security attributes   // аттрибуты безопасности по умолчанию
-		0,          // default stack size            // размер стека по умолчанию
+		NULL,       // default security attributes   // Р°С‚С‚СЂРёР±СѓС‚С‹ Р±РµР·РѕРїР°СЃРЅРѕСЃС‚Рё РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+		0,          // default stack size            // СЂР°Р·РјРµСЂ СЃС‚РµРєР° РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
 		(LPTHREAD_START_ROUTINE)ThreadProc,
-		c,       // no thread function arguments  // отсутствуют аргументы для функции-тела потока
-		0,          // default creation flags        // флаги создания потока по умолчанию
-		&ThreadID); // receive thread identifier     // идентификатор потока
+		c,       // no thread function arguments  // РѕС‚СЃСѓС‚СЃС‚РІСѓСЋС‚ Р°СЂРіСѓРјРµРЅС‚С‹ РґР»СЏ С„СѓРЅРєС†РёРё-С‚РµР»Р° РїРѕС‚РѕРєР°
+		0,          // default creation flags        // С„Р»Р°РіРё СЃРѕР·РґР°РЅРёСЏ РїРѕС‚РѕРєР° РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+		&ThreadID); // receive thread identifier     // РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РїРѕС‚РѕРєР°
 
 	if (aThread[5] == NULL)
 	{
@@ -281,12 +281,12 @@ int lab3_init()
 	char* h = new char(1);
 	*h = 'h';
 	aThread[6] = CreateThread(
-		NULL,       // default security attributes   // аттрибуты безопасности по умолчанию
-		0,          // default stack size            // размер стека по умолчанию
+		NULL,       // default security attributes   // Р°С‚С‚СЂРёР±СѓС‚С‹ Р±РµР·РѕРїР°СЃРЅРѕСЃС‚Рё РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+		0,          // default stack size            // СЂР°Р·РјРµСЂ СЃС‚РµРєР° РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
 		(LPTHREAD_START_ROUTINE)ThreadProc,
-		h,       // no thread function arguments  // отсутствуют аргументы для функции-тела потока
-		0,          // default creation flags        // флаги создания потока по умолчанию
-		&ThreadID); // receive thread identifier     // идентификатор потока
+		h,       // no thread function arguments  // РѕС‚СЃСѓС‚СЃС‚РІСѓСЋС‚ Р°СЂРіСѓРјРµРЅС‚С‹ РґР»СЏ С„СѓРЅРєС†РёРё-С‚РµР»Р° РїРѕС‚РѕРєР°
+		0,          // default creation flags        // С„Р»Р°РіРё СЃРѕР·РґР°РЅРёСЏ РїРѕС‚РѕРєР° РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+		&ThreadID); // receive thread identifier     // РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РїРѕС‚РѕРєР°
 
 	if (aThread[6] == NULL)
 	{
@@ -296,12 +296,12 @@ int lab3_init()
 	char* f = new char(1);
 	*f = 'f';
 	aThread[7] = CreateThread(
-		NULL,       // default security attributes   // аттрибуты безопасности по умолчанию
-		0,          // default stack size            // размер стека по умолчанию
+		NULL,       // default security attributes   // Р°С‚С‚СЂРёР±СѓС‚С‹ Р±РµР·РѕРїР°СЃРЅРѕСЃС‚Рё РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+		0,          // default stack size            // СЂР°Р·РјРµСЂ СЃС‚РµРєР° РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
 		(LPTHREAD_START_ROUTINE)ThreadProc,
-		f,       // no thread function arguments  // отсутствуют аргументы для функции-тела потока
-		0,          // default creation flags        // флаги создания потока по умолчанию
-		&ThreadID); // receive thread identifier     // идентификатор потока
+		f,       // no thread function arguments  // РѕС‚СЃСѓС‚СЃС‚РІСѓСЋС‚ Р°СЂРіСѓРјРµРЅС‚С‹ РґР»СЏ С„СѓРЅРєС†РёРё-С‚РµР»Р° РїРѕС‚РѕРєР°
+		0,          // default creation flags        // С„Р»Р°РіРё СЃРѕР·РґР°РЅРёСЏ РїРѕС‚РѕРєР° РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+		&ThreadID); // receive thread identifier     // РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РїРѕС‚РѕРєР°
 
 	if (aThread[7] == NULL)
 	{
@@ -311,12 +311,12 @@ int lab3_init()
 	char* e = new char(1);
 	*e = 'e';
 	aThread[8] = CreateThread(
-		NULL,       // default security attributes   // аттрибуты безопасности по умолчанию
-		0,          // default stack size            // размер стека по умолчанию
+		NULL,       // default security attributes   // Р°С‚С‚СЂРёР±СѓС‚С‹ Р±РµР·РѕРїР°СЃРЅРѕСЃС‚Рё РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+		0,          // default stack size            // СЂР°Р·РјРµСЂ СЃС‚РµРєР° РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
 		(LPTHREAD_START_ROUTINE)ThreadProc,
-		e,       // no thread function arguments  // отсутствуют аргументы для функции-тела потока
-		0,          // default creation flags        // флаги создания потока по умолчанию
-		&ThreadID); // receive thread identifier     // идентификатор потока
+		e,       // no thread function arguments  // РѕС‚СЃСѓС‚СЃС‚РІСѓСЋС‚ Р°СЂРіСѓРјРµРЅС‚С‹ РґР»СЏ С„СѓРЅРєС†РёРё-С‚РµР»Р° РїРѕС‚РѕРєР°
+		0,          // default creation flags        // С„Р»Р°РіРё СЃРѕР·РґР°РЅРёСЏ РїРѕС‚РѕРєР° РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+		&ThreadID); // receive thread identifier     // РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РїРѕС‚РѕРєР°
 
 	if (aThread[8] == NULL)
 	{
@@ -325,12 +325,12 @@ int lab3_init()
 	}
 
 	aThread[9] = CreateThread(
-		NULL,       // default security attributes   // аттрибуты безопасности по умолчанию
-		0,          // default stack size            // размер стека по умолчанию
+		NULL,       // default security attributes   // Р°С‚С‚СЂРёР±СѓС‚С‹ Р±РµР·РѕРїР°СЃРЅРѕСЃС‚Рё РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+		0,          // default stack size            // СЂР°Р·РјРµСЂ СЃС‚РµРєР° РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
 		(LPTHREAD_START_ROUTINE)ThreadProc,
-		d,       // no thread function arguments  // отсутствуют аргументы для функции-тела потока
-		0,          // default creation flags        // флаги создания потока по умолчанию
-		&ThreadID); // receive thread identifier     // идентификатор потока
+		d,       // no thread function arguments  // РѕС‚СЃСѓС‚СЃС‚РІСѓСЋС‚ Р°СЂРіСѓРјРµРЅС‚С‹ РґР»СЏ С„СѓРЅРєС†РёРё-С‚РµР»Р° РїРѕС‚РѕРєР°
+		0,          // default creation flags        // С„Р»Р°РіРё СЃРѕР·РґР°РЅРёСЏ РїРѕС‚РѕРєР° РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+		&ThreadID); // receive thread identifier     // РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РїРѕС‚РѕРєР°
 
 	if (aThread[9] == NULL)
 	{
@@ -376,12 +376,12 @@ int lab3_init()
 	}
 
 	aThread[10] = CreateThread(
-		NULL,       // default security attributes   // аттрибуты безопасности по умолчанию
-		0,          // default stack size            // размер стека по умолчанию
+		NULL,       // default security attributes   // Р°С‚С‚СЂРёР±СѓС‚С‹ Р±РµР·РѕРїР°СЃРЅРѕСЃС‚Рё РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+		0,          // default stack size            // СЂР°Р·РјРµСЂ СЃС‚РµРєР° РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
 		(LPTHREAD_START_ROUTINE)ThreadProcF,
-		NULL,       // no thread function arguments  // отсутствуют аргументы для функции-тела потока
-		0,          // default creation flags        // флаги создания потока по умолчанию
-		&ThreadID); // receive thread identifier     // идентификатор потока
+		NULL,       // no thread function arguments  // РѕС‚СЃСѓС‚СЃС‚РІСѓСЋС‚ Р°СЂРіСѓРјРµРЅС‚С‹ РґР»СЏ С„СѓРЅРєС†РёРё-С‚РµР»Р° РїРѕС‚РѕРєР°
+		0,          // default creation flags        // С„Р»Р°РіРё СЃРѕР·РґР°РЅРёСЏ РїРѕС‚РѕРєР° РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+		&ThreadID); // receive thread identifier     // РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РїРѕС‚РѕРєР°
 
 	if (aThread[10] == NULL)
 	{
@@ -390,12 +390,12 @@ int lab3_init()
 	}
 
 	aThread[11] = CreateThread(
-		NULL,       // default security attributes   // аттрибуты безопасности по умолчанию
-		0,          // default stack size            // размер стека по умолчанию
+		NULL,       // default security attributes   // Р°С‚С‚СЂРёР±СѓС‚С‹ Р±РµР·РѕРїР°СЃРЅРѕСЃС‚Рё РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+		0,          // default stack size            // СЂР°Р·РјРµСЂ СЃС‚РµРєР° РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
 		(LPTHREAD_START_ROUTINE)ThreadProcG,
-		NULL,       // no thread function arguments  // отсутствуют аргументы для функции-тела потока
-		0,          // default creation flags        // флаги создания потока по умолчанию
-		&ThreadID); // receive thread identifier     // идентификатор потока
+		NULL,       // no thread function arguments  // РѕС‚СЃСѓС‚СЃС‚РІСѓСЋС‚ Р°СЂРіСѓРјРµРЅС‚С‹ РґР»СЏ С„СѓРЅРєС†РёРё-С‚РµР»Р° РїРѕС‚РѕРєР°
+		0,          // default creation flags        // С„Р»Р°РіРё СЃРѕР·РґР°РЅРёСЏ РїРѕС‚РѕРєР° РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+		&ThreadID); // receive thread identifier     // РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РїРѕС‚РѕРєР°
 
 	if (aThread[11] == NULL)
 	{
@@ -404,12 +404,12 @@ int lab3_init()
 	}
 
 	aThread[12] = CreateThread(
-		NULL,       // default security attributes   // аттрибуты безопасности по умолчанию
-		0,          // default stack size            // размер стека по умолчанию
+		NULL,       // default security attributes   // Р°С‚С‚СЂРёР±СѓС‚С‹ Р±РµР·РѕРїР°СЃРЅРѕСЃС‚Рё РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+		0,          // default stack size            // СЂР°Р·РјРµСЂ СЃС‚РµРєР° РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
 		(LPTHREAD_START_ROUTINE)ThreadProcH,
-		NULL,       // no thread function arguments  // отсутствуют аргументы для функции-тела потока
-		0,          // default creation flags        // флаги создания потока по умолчанию
-		&ThreadID); // receive thread identifier     // идентификатор потока
+		NULL,       // no thread function arguments  // РѕС‚СЃСѓС‚СЃС‚РІСѓСЋС‚ Р°СЂРіСѓРјРµРЅС‚С‹ РґР»СЏ С„СѓРЅРєС†РёРё-С‚РµР»Р° РїРѕС‚РѕРєР°
+		0,          // default creation flags        // С„Р»Р°РіРё СЃРѕР·РґР°РЅРёСЏ РїРѕС‚РѕРєР° РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+		&ThreadID); // receive thread identifier     // РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РїРѕС‚РѕРєР°
 
 	if (aThread[12] == NULL)
 	{
@@ -426,12 +426,12 @@ int lab3_init()
 	CloseHandle(aThread[12]);
 
 	aThread[13] = CreateThread(
-		NULL,       // default security attributes   // аттрибуты безопасности по умолчанию
-		0,          // default stack size            // размер стека по умолчанию
+		NULL,       // default security attributes   // Р°С‚С‚СЂРёР±СѓС‚С‹ Р±РµР·РѕРїР°СЃРЅРѕСЃС‚Рё РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+		0,          // default stack size            // СЂР°Р·РјРµСЂ СЃС‚РµРєР° РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
 		(LPTHREAD_START_ROUTINE)ThreadProc,
-		h,       // no thread function arguments  // отсутствуют аргументы для функции-тела потока
-		0,          // default creation flags        // флаги создания потока по умолчанию
-		&ThreadID); // receive thread identifier     // идентификатор потока
+		h,       // no thread function arguments  // РѕС‚СЃСѓС‚СЃС‚РІСѓСЋС‚ Р°СЂРіСѓРјРµРЅС‚С‹ РґР»СЏ С„СѓРЅРєС†РёРё-С‚РµР»Р° РїРѕС‚РѕРєР°
+		0,          // default creation flags        // С„Р»Р°РіРё СЃРѕР·РґР°РЅРёСЏ РїРѕС‚РѕРєР° РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+		&ThreadID); // receive thread identifier     // РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РїРѕС‚РѕРєР°
 
 	if (aThread[13] == NULL)
 	{
@@ -442,12 +442,12 @@ int lab3_init()
 	char* ii = new char(1);
 	*ii = 'i';
 	aThread[14] = CreateThread(
-		NULL,       // default security attributes   // аттрибуты безопасности по умолчанию
-		0,          // default stack size            // размер стека по умолчанию
+		NULL,       // default security attributes   // Р°С‚С‚СЂРёР±СѓС‚С‹ Р±РµР·РѕРїР°СЃРЅРѕСЃС‚Рё РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+		0,          // default stack size            // СЂР°Р·РјРµСЂ СЃС‚РµРєР° РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
 		(LPTHREAD_START_ROUTINE)ThreadProc,
-		ii,       // no thread function arguments  // отсутствуют аргументы для функции-тела потока
-		0,          // default creation flags        // флаги создания потока по умолчанию
-		&ThreadID); // receive thread identifier     // идентификатор потока
+		ii,       // no thread function arguments  // РѕС‚СЃСѓС‚СЃС‚РІСѓСЋС‚ Р°СЂРіСѓРјРµРЅС‚С‹ РґР»СЏ С„СѓРЅРєС†РёРё-С‚РµР»Р° РїРѕС‚РѕРєР°
+		0,          // default creation flags        // С„Р»Р°РіРё СЃРѕР·РґР°РЅРёСЏ РїРѕС‚РѕРєР° РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+		&ThreadID); // receive thread identifier     // РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РїРѕС‚РѕРєР°
 
 	if (aThread[14] == NULL)
 	{
@@ -457,12 +457,12 @@ int lab3_init()
 	char* k = new char(1);
 	*k = 'k';
 	aThread[15] = CreateThread(
-		NULL,       // default security attributes   // аттрибуты безопасности по умолчанию
-		0,          // default stack size            // размер стека по умолчанию
+		NULL,       // default security attributes   // Р°С‚С‚СЂРёР±СѓС‚С‹ Р±РµР·РѕРїР°СЃРЅРѕСЃС‚Рё РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+		0,          // default stack size            // СЂР°Р·РјРµСЂ СЃС‚РµРєР° РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
 		(LPTHREAD_START_ROUTINE)ThreadProc,
-		k,       // no thread function arguments  // отсутствуют аргументы для функции-тела потока
-		0,          // default creation flags        // флаги создания потока по умолчанию
-		&ThreadID); // receive thread identifier     // идентификатор потока
+		k,       // no thread function arguments  // РѕС‚СЃСѓС‚СЃС‚РІСѓСЋС‚ Р°СЂРіСѓРјРµРЅС‚С‹ РґР»СЏ С„СѓРЅРєС†РёРё-С‚РµР»Р° РїРѕС‚РѕРєР°
+		0,          // default creation flags        // С„Р»Р°РіРё СЃРѕР·РґР°РЅРёСЏ РїРѕС‚РѕРєР° РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+		&ThreadID); // receive thread identifier     // РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РїРѕС‚РѕРєР°
 
 	if (aThread[15] == NULL)
 	{
@@ -479,12 +479,12 @@ int lab3_init()
 	CloseHandle(aThread[15]);
 
 	aThread[16] = CreateThread(
-		NULL,       // default security attributes   // аттрибуты безопасности по умолчанию
-		0,          // default stack size            // размер стека по умолчанию
+		NULL,       // default security attributes   // Р°С‚С‚СЂРёР±СѓС‚С‹ Р±РµР·РѕРїР°СЃРЅРѕСЃС‚Рё РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+		0,          // default stack size            // СЂР°Р·РјРµСЂ СЃС‚РµРєР° РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
 		(LPTHREAD_START_ROUTINE)ThreadProc,
-		k,       // no thread function arguments  // отсутствуют аргументы для функции-тела потока
-		0,          // default creation flags        // флаги создания потока по умолчанию
-		&ThreadID); // receive thread identifier     // идентификатор потока
+		k,       // no thread function arguments  // РѕС‚СЃСѓС‚СЃС‚РІСѓСЋС‚ Р°СЂРіСѓРјРµРЅС‚С‹ РґР»СЏ С„СѓРЅРєС†РёРё-С‚РµР»Р° РїРѕС‚РѕРєР°
+		0,          // default creation flags        // С„Р»Р°РіРё СЃРѕР·РґР°РЅРёСЏ РїРѕС‚РѕРєР° РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+		&ThreadID); // receive thread identifier     // РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РїРѕС‚РѕРєР°
 
 	if (aThread[16] == NULL)
 	{
@@ -495,12 +495,12 @@ int lab3_init()
 	char* m = new char(1);
 	*m = 'm';
 	aThread[17] = CreateThread(
-		NULL,       // default security attributes   // аттрибуты безопасности по умолчанию
-		0,          // default stack size            // размер стека по умолчанию
+		NULL,       // default security attributes   // Р°С‚С‚СЂРёР±СѓС‚С‹ Р±РµР·РѕРїР°СЃРЅРѕСЃС‚Рё РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+		0,          // default stack size            // СЂР°Р·РјРµСЂ СЃС‚РµРєР° РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
 		(LPTHREAD_START_ROUTINE)ThreadProc,
-		m,       // no thread function arguments  // отсутствуют аргументы для функции-тела потока
-		0,          // default creation flags        // флаги создания потока по умолчанию
-		&ThreadID); // receive thread identifier     // идентификатор потока
+		m,       // no thread function arguments  // РѕС‚СЃСѓС‚СЃС‚РІСѓСЋС‚ Р°СЂРіСѓРјРµРЅС‚С‹ РґР»СЏ С„СѓРЅРєС†РёРё-С‚РµР»Р° РїРѕС‚РѕРєР°
+		0,          // default creation flags        // С„Р»Р°РіРё СЃРѕР·РґР°РЅРёСЏ РїРѕС‚РѕРєР° РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+		&ThreadID); // receive thread identifier     // РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РїРѕС‚РѕРєР°
 
 	if (aThread[17] == NULL)
 	{
