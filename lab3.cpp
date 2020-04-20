@@ -122,7 +122,7 @@ DWORD WINAPI ThreadProc(LPVOID lpParam)
 	// lpParam not used in this example
 	// аргумент (параметр) lpParam в этом примере не используется
 	UNREFERENCED_PARAMETER(lpParam);
-	char lt = (char)lpParam;
+	//char lt = (char)lpParam;
 
 	DWORD dwWaitResult, dwWaitResult1;
 	//BOOL bContinue = TRUE;
@@ -132,7 +132,7 @@ DWORD WINAPI ThreadProc(LPVOID lpParam)
 		switch (dwWaitResult)
 		{
 		case WAIT_OBJECT_0:
-			cout << lt;
+			cout << (char)lpParam;
 			if (!ReleaseSemaphore(ghSemaphore, 1, NULL))
 			{
 				cout << "ReleaseSemaphore error: \n" << GetLastError();
