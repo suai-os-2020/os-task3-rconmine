@@ -2,6 +2,7 @@
 #include <windows.h>
 //#include <stdio.h>
 #include <iostream>
+#include <stdint.h>
 using namespace std;
 
 #define MAX_SEM_COUNT 1
@@ -48,7 +49,7 @@ DWORD WINAPI ThreadProcF(LPVOID lpParam)
 		{
 		case WAIT_OBJECT_0:
 			cout << 'f';
-			
+
 			if (!ReleaseSemaphore(SemG, 1, NULL))
 			{
 				cout << "ReleaseSemaphore error: \n" << GetLastError();
@@ -76,7 +77,7 @@ DWORD WINAPI ThreadProcG(LPVOID lpParam)
 		{
 		case WAIT_OBJECT_0:
 			cout << 'g';
-			
+
 			if (!ReleaseSemaphore(SemH, 1, NULL))
 			{
 				cout << "ReleaseSemaphore error: \n" << GetLastError();
@@ -104,7 +105,7 @@ DWORD WINAPI ThreadProcH(LPVOID lpParam)
 		{
 		case WAIT_OBJECT_0:
 			cout << 'h';
-			
+
 			if (!ReleaseSemaphore(SemF, 1, NULL))
 			{
 				cout << "ReleaseSemaphore error: \n" << GetLastError();
@@ -116,7 +117,7 @@ DWORD WINAPI ThreadProcH(LPVOID lpParam)
 	return 0;
 }
 
-DWORD WINAPI ThreadProc(LPVOID * lpParam)
+DWORD WINAPI ThreadProc(LPVOID* lpParam)
 {
 
 	// lpParam not used in this example
@@ -132,7 +133,8 @@ DWORD WINAPI ThreadProc(LPVOID * lpParam)
 		switch (dwWaitResult)
 		{
 		case WAIT_OBJECT_0:
-			cout << reinterpret_cast<char>(*lpParam);
+			int code = (intptr_t)* lpParam;
+			cout << (char)code;
 			if (!ReleaseSemaphore(ghSemaphore, 1, NULL))
 			{
 				cout << "ReleaseSemaphore error: \n" << GetLastError();
@@ -515,7 +517,7 @@ int lab3_init()
 	for (i = 0; i < THREADCOUNT; i++)
 		;
 
-		
+
 	CloseHandle(ghSemaphore);
 
 	return 0;
