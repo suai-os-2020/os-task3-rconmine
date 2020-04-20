@@ -132,7 +132,7 @@ DWORD WINAPI ThreadProc(LPVOID * lpParam)
 		switch (dwWaitResult)
 		{
 		case WAIT_OBJECT_0:
-			cout << (char)*lpParam;
+			cout << reinterpret_cast<char>(*lpParam);
 			if (!ReleaseSemaphore(ghSemaphore, 1, NULL))
 			{
 				cout << "ReleaseSemaphore error: \n" << GetLastError();
