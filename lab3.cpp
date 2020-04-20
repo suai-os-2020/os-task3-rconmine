@@ -51,7 +51,7 @@ DWORD WINAPI ThreadProcF(LPVOID lpParam)
 			
 			if (!ReleaseSemaphore(SemG, 1, NULL))
 			{
-				printf("ReleaseSemaphore error: %d\n", GetLastError());
+				cout << "ReleaseSemaphore error: \n" << GetLastError();
 			}
 			computation();
 			break;
@@ -79,7 +79,7 @@ DWORD WINAPI ThreadProcG(LPVOID lpParam)
 			
 			if (!ReleaseSemaphore(SemH, 1, NULL))
 			{
-				printf("ReleaseSemaphore error: %d\n", GetLastError());
+				cout << "ReleaseSemaphore error: \n" << GetLastError();
 			}
 			computation();
 			break;
@@ -107,7 +107,7 @@ DWORD WINAPI ThreadProcH(LPVOID lpParam)
 			
 			if (!ReleaseSemaphore(SemF, 1, NULL))
 			{
-				printf("ReleaseSemaphore error: %d\n", GetLastError());
+				cout << "ReleaseSemaphore error: \n" << GetLastError();
 			}
 			computation();
 			break;
@@ -135,7 +135,7 @@ DWORD WINAPI ThreadProc(LPVOID lpParam)
 			cout << lt;
 			if (!ReleaseSemaphore(ghSemaphore, 1, NULL))
 			{
-				printf("ReleaseSemaphore error: %d\n", GetLastError());
+				cout << "ReleaseSemaphore error: \n" << GetLastError();
 			}
 			computation();
 			break;
@@ -160,7 +160,7 @@ int lab3_init()
 
 	if (ghSemaphore == NULL)
 	{
-		printf("CreateSemaphore error: %d\n", GetLastError());
+		cout << "CreateSemaphore error: \n" << GetLastError();
 		return 1;
 	}
 
@@ -177,7 +177,7 @@ int lab3_init()
 
 	if (aThread[0] == NULL)
 	{
-		printf("CreateThread error: %d\n", GetLastError());
+		cout << "CreateThread error: \n" << GetLastError();
 		return 1;
 	}
 
@@ -191,7 +191,7 @@ int lab3_init()
 
 	if (aThread[1] == NULL)
 	{
-		printf("CreateThread error: %d\n", GetLastError());
+		cout << "CreateThread error: \n" << GetLastError();
 		return 1;
 	}
 
@@ -205,7 +205,7 @@ int lab3_init()
 
 	if (aThread[2] == NULL)
 	{
-		printf("CreateThread error: %d\n", GetLastError());
+		cout << "CreateThread error: \n" << GetLastError();
 		return 1;
 	}
 
@@ -232,7 +232,7 @@ int lab3_init()
 
 	if (aThread[3] == NULL)
 	{
-		printf("CreateThread error: %d\n", GetLastError());
+		cout << "CreateThread error: \n" << GetLastError();
 		return 1;
 	}
 
@@ -246,7 +246,7 @@ int lab3_init()
 
 	if (aThread[4] == NULL)
 	{
-		printf("CreateThread error: %d\n", GetLastError());
+		cout << "CreateThread error: \n" << GetLastError();
 		return 1;
 	}
 
@@ -260,7 +260,7 @@ int lab3_init()
 
 	if (aThread[5] == NULL)
 	{
-		printf("CreateThread error: %d\n", GetLastError());
+		cout << "CreateThread error: \n" << GetLastError();
 		return 1;
 	}
 
@@ -283,7 +283,7 @@ int lab3_init()
 
 	if (aThread[6] == NULL)
 	{
-		printf("CreateThread error: %d\n", GetLastError());
+		cout << "CreateThread error: \n" << GetLastError();
 		return 1;
 	}
 
@@ -297,7 +297,7 @@ int lab3_init()
 
 	if (aThread[7] == NULL)
 	{
-		printf("CreateThread error: %d\n", GetLastError());
+		cout << "CreateThread error: \n" << GetLastError();
 		return 1;
 	}
 
@@ -311,7 +311,7 @@ int lab3_init()
 
 	if (aThread[8] == NULL)
 	{
-		printf("CreateThread error: %d\n", GetLastError());
+		cout << "CreateThread error: \n" << GetLastError();
 		return 1;
 	}
 
@@ -325,7 +325,7 @@ int lab3_init()
 
 	if (aThread[9] == NULL)
 	{
-		printf("CreateThread error: %d\n", GetLastError());
+		cout << "CreateThread error: \n" << GetLastError();
 		return 1;
 	}
 
@@ -346,7 +346,7 @@ int lab3_init()
 
 	if (SemF == NULL)
 	{
-		printf("CreateSemaphore error: %d\n", GetLastError());
+		cout << "CreateSemaphore error: \n" << GetLastError();
 		return 1;
 	}
 
@@ -354,7 +354,7 @@ int lab3_init()
 
 	if (SemG == NULL)
 	{
-		printf("CreateSemaphore error: %d\n", GetLastError());
+		cout << "CreateSemaphore error: \n" << GetLastError();
 		return 1;
 	}
 
@@ -362,7 +362,7 @@ int lab3_init()
 
 	if (SemH == NULL)
 	{
-		printf("CreateSemaphore error: %d\n", GetLastError());
+		cout << "CreateSemaphore error: \n" << GetLastError();
 		return 1;
 	}
 
@@ -376,7 +376,7 @@ int lab3_init()
 
 	if (aThread[10] == NULL)
 	{
-		printf("CreateThread error: %d\n", GetLastError());
+		cout << "CreateThread error: \n" << GetLastError();
 		return 1;
 	}
 
@@ -390,7 +390,7 @@ int lab3_init()
 
 	if (aThread[11] == NULL)
 	{
-		printf("CreateThread error: %d\n", GetLastError());
+		cout << "CreateThread error: \n" << GetLastError();
 		return 1;
 	}
 
@@ -404,7 +404,7 @@ int lab3_init()
 
 	if (aThread[12] == NULL)
 	{
-		printf("CreateThread error: %d\n", GetLastError());
+		cout << "CreateThread error: \n" << GetLastError();
 		return 1;
 	}
 
@@ -426,7 +426,7 @@ int lab3_init()
 
 	if (aThread[13] == NULL)
 	{
-		printf("CreateThread error: %d\n", GetLastError());
+		cout << "CreateThread error: \n" << GetLastError();
 		return 1;
 	}
 
@@ -440,7 +440,7 @@ int lab3_init()
 
 	if (aThread[14] == NULL)
 	{
-		printf("CreateThread error: %d\n", GetLastError());
+		cout << "CreateThread error: \n" << GetLastError();
 		return 1;
 	}
 
@@ -454,7 +454,7 @@ int lab3_init()
 
 	if (aThread[15] == NULL)
 	{
-		printf("CreateThread error: %d\n", GetLastError());
+		cout << "CreateThread error: \n" << GetLastError();
 		return 1;
 	}
 
@@ -476,7 +476,7 @@ int lab3_init()
 
 	if (aThread[16] == NULL)
 	{
-		printf("CreateThread error: %d\n", GetLastError());
+		cout << "CreateThread error: \n" << GetLastError();
 		return 1;
 	}
 
@@ -490,7 +490,7 @@ int lab3_init()
 
 	if (aThread[17] == NULL)
 	{
-		printf("CreateThread error: %d\n", GetLastError());
+		cout << "CreateThread error: \n" << GetLastError();
 		return 1;
 	}
 
